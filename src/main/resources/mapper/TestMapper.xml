@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="backend.mapper.TestMapper">
+
+    <resultMap id="TestResultMap" type="backend.domain.Test">
+        <result property="project_name" column="project_name"/>
+        <result property="applicant" column="applicant"/>
+        <result property="date1" column="date1"/>
+        <result property="date2" column="date2"/>
+        <result property="content" column="content"/>
+        <result property="version" column="version"/>
+        <result property="tips" column="tips"/>
+    </resultMap>
+
+    <insert id="create">
+        INSERT INTO test VALUES (#{project_name},#{applicant},#{date1},#{date2},#{content},#{version},#{tips})
+    </insert>
+
+    <select id="findAll" resultMap="TestResultMap">
+        SELECT * FROM test
+    </select>
+
+</mapper>

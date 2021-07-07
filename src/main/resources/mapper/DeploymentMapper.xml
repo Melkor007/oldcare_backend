@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="backend.mapper.DeploymentMapper">
+
+    <resultMap id="DeploymentResultMap" type="backend.domain.Deployment">
+        <result property="deployment_name" column="deployment_name"/>
+        <result property="applicant" column="applicant"/>
+        <result property="environment" column="environment"/>
+        <result property="date1" column="date1"/>
+        <result property="date2" column="date2"/>
+        <result property="reason" column="reason"/>
+    </resultMap>
+
+    <insert id="create">
+        INSERT INTO deployment VALUES (#{deployment_name}, #{applicant}, #{environment},#{date1}, #{date2},#{reason})
+    </insert>
+
+    <select id="findAll" resultMap="DeploymentResultMap">
+        SELECT * FROM deployment
+    </select>
+
+</mapper>
